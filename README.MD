@@ -1,0 +1,4 @@
+MyBlog By Django.
+It is Simple and Ugly.
+Just For Fun.
+I will Perfect it.
