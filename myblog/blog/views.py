@@ -5,7 +5,8 @@ from . import models
 def index(requsest):
 #    return HttpResponse("Hello,World!")
 #    return render(requsest, 'index.html', {'hello': 'Hello,World!!'})
-    article = models.Article.objects.get(pk=1)
-    return render(requsest, 'index.html', {'article': article})
+#    article = models.Article.objects.get(pk=1)
+    articles = models.Article.objects.all()
+    return render(requsest, 'index.html', {'articles': articles})
 # 第一个参数为对象本身，第二个为模板文件，字符串，第三个参数是后台传递到前端的数据
 # Create your views here.
