@@ -18,10 +18,11 @@ from django.urls import path, include
 
 # import blog.views as bv
 
+
 urlpatterns = [
     # URL、响应方法、名称
     path('admin/', admin.site.urls),
-    #path('index/',bv.index),
-    path('blog/',include('blog.urls'))
+    # path('index/',bv.index),
+    path('blog/', include('blog.urls', namespace='blog')),
 ]
 

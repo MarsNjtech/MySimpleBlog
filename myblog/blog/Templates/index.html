@@ -6,12 +6,12 @@
 </head>
 <body>
 <h1>
-    <a href="">New Passage</a>
+    <a href="{% url 'blog:edit_page' %}">New Passage</a>
 </h1>
 {#<h1>{{ article.title }}</h1>#}
 {#<h3>{{ article.content }}</h3>#}
 {% for article in articles %}
-    <a href="">{{ article.title }}</a>
+    <a href="{% url 'blog:article_page' article.id %}">{{ article.title }}</a>
     <br/>
 {% endfor %}
 </body>
