@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
 from . import models
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -8,7 +8,14 @@ def index(request):
     #    return render(requsest, 'index.html', {'hello': 'Hello,World!!'})
     #    article = models.Article.objects.get(pk=1)
     articles = models.Article.objects.all()
-    return render(request, 'index.html', {'articles': articles})
+
+    # return HttpResponseRedirect('')
+    return render(request, 'blog/index.html', {'articles': articles})
+
+
+def index_1(request):
+    articles = models.Article.objects.all()
+    return render(request, 'blog/index.html', {'articles': articles})
 
 
 # 第一个参数为对象本身，第二个为模板文件，字符串，第三个参数是后台传递到前端的数据
@@ -16,15 +23,15 @@ def index(request):
 
 def article_page(request, article_id):
     article = models.Article.objects.get(pk=article_id)
-    return render(request, 'article_page.html', {'article': article})
+    return render(request, 'blog/article_page.html', {'article': article})
 
 
 def edit_page(request, article_id):
     if str(article_id) == '0':
-        return render(request, 'edit_page.html')
+        return render(request, 'blog/edit_page.html')
 
     article = models.Article.objects.get(pk=article_id)
-    return render(request, 'edit_page.html', {'article': article})
+    return render(request, 'blog/edit_page.html', {'article': article})
 
 
 def edit_action(request):
@@ -35,10 +42,10 @@ def edit_action(request):
     if article_id == '0':
         models.Article.objects.create(title=title, content=content)
         articles = models.Article.objects.all()
-        return render(request, 'index.html', {'articles': articles})
+        return render(request, 'blog/index.html', {'articles': articles})
 
     article = models.Article.objects.get(pk=article_id)
     article.title = title
     article.content = content
     article.save()
-    return render(request, 'article_page.html', {'article': article})
+    return render(request, 'blog/article_page.html', {'article': article})
