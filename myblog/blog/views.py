@@ -13,11 +13,6 @@ def index(request):
     return render(request, 'blog/index.html', {'articles': articles})
 
 
-def index_1(request):
-    articles = models.Article.objects.all()
-    return render(request, 'blog/index.html', {'articles': articles})
-
-
 # 第一个参数为对象本身，第二个为模板文件，字符串，第三个参数是后台传递到前端的数据
 # Create your views here.
 
