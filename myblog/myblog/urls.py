@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('index/',bv.index),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('polls/', include('polls.urls', namespace='polls')),
 ]
-
