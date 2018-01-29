@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# import blog.views as bv
+import blog.views as bv
 
 
 urlpatterns = [
     # URL、响应方法、名称
     path('admin/', admin.site.urls),
-    # path('index/',bv.index),
+    path('index/', bv.index_1),
     path('blog/', include('blog.urls', namespace='blog')),
     path('polls/', include('polls.urls', namespace='polls')),
 ]
